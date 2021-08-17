@@ -17,7 +17,7 @@ import java.util.List;
 public class GameController {
 
     @Autowired
-    GameService gameService;
+    private GameService gameService;
 
     @GetMapping("/find")
     @ApiOperation(value = "Retorna uma lista de games")

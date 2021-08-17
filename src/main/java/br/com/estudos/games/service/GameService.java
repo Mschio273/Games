@@ -7,16 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
 
 @Service
 public class GameService {
 
     @Autowired
-    GameRepository gameRepository;
+    private GameRepository gameRepository;
 
     public List<Game> findAll(){
-        List<Game> games = this.gameRepository.findAll();
-        return games;
+        return this.gameRepository.findAll();
     }
 
     public Game findByIdOrThrowException(Long id){
@@ -33,6 +34,6 @@ public class GameService {
     }
 
     public void delete(Long id){
-        this.gameRepository.delete(id);
+        this.gameRepository.delete(findByIdOrThrowException(id));
     }
 }

@@ -23,5 +23,6 @@ public interface GameRepository {
     void save(Game game);
 
     @Delete("DELETE FROM GAMES WHERE id =#{id}")
-    int delete(Long id);
+    void delete(Game byIdOrThrowException);
+
 }
