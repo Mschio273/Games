@@ -1,0 +1,5 @@
+CREATE TABLE GAMES (
+    id INT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    anoDeLancamento DATE NOT NULL,
+);
