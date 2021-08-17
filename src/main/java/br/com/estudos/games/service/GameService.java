@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static br.com.estudos.games.errors.ErrorConstants.ID_NAO_ENCONTRADO;
+
 @Service
 public class GameService {
 
@@ -19,7 +21,7 @@ public class GameService {
     }
 
     public Game findByIdOrThrowException(Long id){
-        return this.gameRepository.findById(id).orElseThrow(() -> new BadRequestException("Id não encontrado"));
+        return this.gameRepository.findById(id).orElseThrow(() -> new BadRequestException(ID_NAO_ENCONTRADO));
     }
 
     public void update(Game game){

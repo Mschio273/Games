@@ -23,6 +23,6 @@ public interface GameRepository {
     void save(Game game);
 
     @Delete("DELETE FROM GAMES WHERE id =#{id}")
-    void delete(Game byIdOrThrowException);
+    void delete(Game findByIdOrThrowException);
 
 }
