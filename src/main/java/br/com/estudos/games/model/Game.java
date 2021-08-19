@@ -15,5 +15,5 @@ public class Game {
 
     private Long id;
     private String nome;
-    private LocalDate anoDeLancamento;
+    private LocalDate dataDeLancamento;
 }

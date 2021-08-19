@@ -15,14 +15,13 @@ public interface GameRepository {
     @Select("SELECT * FROM GAMES WHERE id=#{id}")
     Optional<Game> findById(Long id);
 
-    @Update("UPDATE GAMES SET nome=#{nome}, anoDeLancamento=#{anoDeLancamento} WHERE id=#{id}")
+    @Update("UPDATE GAMES SET nome=#{nome}, dataDeLancamento=#{dataDeLancamento} WHERE id=#{id}")
     int update(Game game);
 
-    @Insert("INSERT INTO GAMES (nome, anoDeLancamento) VALUES (#{nome},#{anoDeLancamento})")
+    @Insert("INSERT INTO GAMES (nome, dataDeLancamento) VALUES (#{nome},#{dataDeLancamento})")
     @Options(keyColumn = "id", keyProperty = "id", useGeneratedKeys = true)
     void save(Game game);
 
     @Delete("DELETE FROM GAMES WHERE id =#{id}")
     void delete(Game findByIdOrThrowException);
-
 }

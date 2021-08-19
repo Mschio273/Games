@@ -20,7 +20,7 @@ public class GameService {
         return this.gameRepository.findAll();
     }
 
-    public Game findByIdOrThrowException(Long id){
+    public Game findById(Long id){
         return this.gameRepository.findById(id).orElseThrow(() -> new BadRequestException(ID_NAO_ENCONTRADO));
     }
 
@@ -34,6 +34,6 @@ public class GameService {
     }
 
     public void delete(Long id){
-        this.gameRepository.delete(findByIdOrThrowException(id));
+        this.gameRepository.delete(findById(id));
     }
 }

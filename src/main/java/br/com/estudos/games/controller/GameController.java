@@ -30,7 +30,7 @@ public class GameController {
     @ApiOperation(value = "Retorna um game")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Game findById(@PathVariable Long id){
-        return gameService.findByIdOrThrowException(id);
+        return gameService.findById(id);
     }
 
     @PutMapping("/update")
