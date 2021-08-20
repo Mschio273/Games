@@ -19,35 +19,35 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
-    @GetMapping("/find")
+    @GetMapping
     @ApiOperation(value = "Retorna uma lista de games")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public List<Game> findAll(){
         return gameService.findAll();
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     @ApiOperation(value = "Retorna um game")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Game findById(@PathVariable Long id){
         return gameService.findById(id);
     }
 
-    @PutMapping("/update")
+    @PutMapping
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Atualiza um game")
     public void update(@RequestBody Game game){
         gameService.update(game);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Insere um game")
     public Game save(@RequestBody Game game){
         return gameService.save(game);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Deleta um game")
     public void delete(@PathVariable Long id){

@@ -24,16 +24,21 @@ class GameServiceTest {
 
     @Test
     void test(){
+
         Game game = Game.builder()
                 .nome("sonic")
                 .build();
+
         Game gamesEsperados = Game.builder()
                 .nome("sonic")
                 .build();
-        var listaGames = List.of(gamesEsperados);
-        when(gameRepository.findAll()).thenReturn(List.of(game));
-        var response = gameService.findAll();
-        assertEquals(listaGames, response);
 
+        List<Game> listaGames = List.of(gamesEsperados);
+
+        when(gameRepository.findAll()).thenReturn(List.of(game));
+
+        List<Game> response = gameService.findAll();
+
+        assertEquals(listaGames, response);
     }
 }
